@@ -22,7 +22,7 @@ Peng Xu
 Xiaobai Ji
 
 ## Dataset
-Original dataset: [to be filled in]
+Original dataset: https://drive.google.com/drive/folders/1lBWdS7o7d75u9YKNUvgxzcQ0xUUB_r5g?usp=sharing
 
 Processed dataset: https://berkeley.box.com/v/InNav-dataset
 
