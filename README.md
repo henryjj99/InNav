@@ -46,7 +46,20 @@ It is estimated that training on GPU is need. Thus, we have selected Colab Pro a
 In order to test out how baseline machine learning models perform on our current dataset, we selected Ridge Regression and Lasso Regression as the baseline model.
 The code is in the file /Data_X_inNav_wifi_data_Baseline_with_filtered_data.ipynb
 
-The file was composed of 3 sections. In the first section, 
+The file was composed of 3 sections. In the first section, training datasets and testing datasets generated from previous steps are loaded from Google Drive, and the filenames are stored in variable train_files and test_files. Then, in the section **Baseline 1: Ridge Regression** we train with Ridge Regression, and in the section **Baseline 2** we train with Lasso Regression. The result was shown below.
+
 ## Training with Unfiltered Dataset
+#### Model Selection
+We have chosen LightGBM because LightGBM is a tree-based gradient boosting framework with high efficiency and great performance on large datasets, and fully supports parappel and GPU training.
+#### Training with LightGBM
+The code is in the file /Data_X_inNav_wifi_data_unfiltered_data_fineTune.ipynb
+In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
+#### Performance
+Performance was measured with MSE
 ## Training with Filtered Dataset
+#### Why do we filtered the dataset
+#### Training with LightGBM on Filtered Data
+The code is in the file /Data_X_inNav_wifi_data_filtered_data.ipynb
+In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
 ## Finetunning
+#### LightGBM Hyperparameters
