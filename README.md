@@ -33,7 +33,11 @@ InNav is a startup founded with love and professional skills in Berkeley by Shen
 ### Original Dataset Structure
 ### Dataset Cleaning
 ### Dataset for Training
-[An image of the data structure]
+
+[<img src="images/image3.png" width="60%"/>](image3.png)
+
+[<img src="images/image4.png" width="60%"/>](image4.png)
+
 Original dataset: https://drive.google.com/drive/folders/1lBWdS7o7d75u9YKNUvgxzcQ0xUUB_r5g?usp=sharing
 
 Processed dataset: https://berkeley.box.com/v/InNav-dataset
@@ -46,6 +50,7 @@ It is estimated that training on GPU is need. Thus, we have selected Colab Pro a
 
 When you mount Google Drive as a local hard drive:
 > from google.colab import drive
+> 
 > drive.mount('/content/drive')
 
 When you copy the dataset from Googel Drive:
@@ -65,6 +70,10 @@ We have chosen LightGBM because LightGBM is a tree-based gradient boosting frame
 ### Training with LightGBM
 The code is in the file /Data_X_inNav_wifi_data_unfiltered_data_fineTune.ipynb
 In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
+KFold is also used.
+
+[<img src="images/image5.png" width="10%"/>](image5.png)
+
 > For more information regarding LightGBM, please visit https://github.com/microsoft/LightGBM
 
 ### Performance
