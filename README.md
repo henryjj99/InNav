@@ -7,7 +7,7 @@
 - Training with Filtered Dataset
 - Finetuning
 
-## Project Introduction
+# Project Introduction
 #### InNav Provides Low-Cost Customers Indoor Positioning: Solutions for Smarter Business Strategies and Location-Based Services
 
 Berkeley, CA, Apr 22, 2021 – InNav uses Wifi data to calculate indoor phone locations, which helps both customers navigate in shopping malls, and business owners make smarter business decisions with visualization of customer heatmap. As COVID is being alleviated, people are expecting indoor shopping and indoor activities to return. The company has chosen this time to announce its product, and has been collaborating with business owners to boost their business during the re-openings.
@@ -27,7 +27,7 @@ There exist solutions like using camera + face detection to calculate customer n
 #### About Us
 InNav is a startup founded with love and professional skills in Berkeley by Shengfeng Li, Peng Xu, Xiaobai Ji, Mei Chun Yeh, and Jiayue Tao. The interdisciplinary team is formed by designers, data scientists, and full-stack developers. The team’s vision is to use big data to empower retails with smarter business decisions. The team is actively looking for investments and capital to support the next stage collaboration with shopping malls and businesses.
 
-## Data Collecting & Cleaning
+# Data Collecting & Cleaning
 #### Original Dataset Structure
 #### Dataset Cleaning
 #### Dataset for Training
@@ -38,7 +38,7 @@ Processed dataset: https://berkeley.box.com/v/InNav-dataset
 
 Calculation result: https://berkeley.box.com/v/InNav-dataset-result
 
-## Training Environment Setup
+# Training Environment Setup
 It is estimated that training on GPU is need. Thus, we have selected Colab Pro as our training environment, including accessing Google Drive as storages, 2 CPU cores,  NVIDIA V100/P100 as GPU, and 32G RAM. Some codes are used for mounting Google Drive as hard drives, and installing dependencies and libraries on Colab environment.
 > For more information regarding Colab, please visit https://colab.research.google.com/notebooks/intro.ipynb
 
@@ -51,13 +51,13 @@ When you copy the dataset from Googel Drive:
 
 Using this command, filtered data was copied to /content/data/. If you would like to run on your Colab/your local environment, please modify this line in order to guarantee dataset is loaded successfully (make sure in subsequent codes, variable train_files and test_files can correctly capture the filenames of the datasets)
 
-## Baseline Model Training
+# Baseline Model Training
 In order to test out how baseline machine learning models perform on our current dataset, we selected Ridge Regression and Lasso Regression as the baseline model.
 The code is in the file /Data_X_inNav_wifi_data_Baseline_with_filtered_data.ipynb
 
 The file was composed of 3 sections. In the first section, training datasets and testing datasets generated from previous steps are loaded from Google Drive, and the filenames are stored in variable train_files and test_files. Then, in the section **Baseline 1: Ridge Regression** we train with Ridge Regression, and in the section **Baseline 2** we train with Lasso Regression. The result was shown below.
 
-## Training with Unfiltered Dataset
+# Training with Unfiltered Dataset
 #### Model Selection
 We have chosen LightGBM because LightGBM is a tree-based gradient boosting framework with high efficiency and great performance on large datasets, and fully supports parappel and GPU training.
 #### Training with LightGBM
@@ -67,10 +67,10 @@ In the first section, LightGBM that supports GPU is installed, and the unfiltere
 
 #### Performance
 Performance was measured with MSE
-## Training with Filtered Dataset
+# Training with Filtered Dataset
 #### Why do we filtered the dataset
 #### Training with LightGBM on Filtered Data
 The code is in the file /Data_X_inNav_wifi_data_filtered_data.ipynb
 In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
-## Finetunning
+# Finetunning
 #### LightGBM Hyperparameters
