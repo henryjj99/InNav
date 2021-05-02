@@ -54,6 +54,8 @@ We have chosen LightGBM because LightGBM is a tree-based gradient boosting frame
 #### Training with LightGBM
 The code is in the file /Data_X_inNav_wifi_data_unfiltered_data_fineTune.ipynb
 In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
+> For more information regarding LightGBM, please visit https://github.com/microsoft/LightGBM
+
 #### Performance
 Performance was measured with MSE
 ## Training with Filtered Dataset
