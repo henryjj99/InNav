@@ -42,6 +42,15 @@ Calculation result: https://berkeley.box.com/v/InNav-dataset-result
 It is estimated that training on GPU is need. Thus, we have selected Colab Pro as our training environment, including accessing Google Drive as storages, 2 CPU cores,  NVIDIA V100/P100 as GPU, and 32G RAM. Some codes are used for mounting Google Drive as hard drives, and installing dependencies and libraries on Colab environment.
 > For more information regarding Colab, please visit https://colab.research.google.com/notebooks/intro.ipynb
 
+When you mount Google Drive as a local hard drive:
+> from google.colab import drive
+> drive.mount('/content/drive')
+
+When you copy the dataset from Googel Drive:
+> !cp /content/drive/MyDrive/Data-x/data/filtered/*.csv /content/data/
+
+Using this command, filtered data was copied to /content/data/. If you would like to run on your Colab/your local environment, please modify this line in order to guarantee dataset is loaded successfully (make sure in subsequent codes, variable train_files and test_files can correctly capture the filenames of the datasets)
+
 ## Baseline Model Training
 In order to test out how baseline machine learning models perform on our current dataset, we selected Ridge Regression and Lasso Regression as the baseline model.
 The code is in the file /Data_X_inNav_wifi_data_Baseline_with_filtered_data.ipynb
