@@ -31,8 +31,23 @@ InNav is a startup founded with love and professional skills in Berkeley by Shen
 
 # Data Collecting & Cleaning
 ### Original Dataset Structure
-### Dataset Cleaning
-### Dataset for Training
+The original dataset is close to 70 GB.  As shown in the screenshot below, each file corresponds to one site (building). Within each building, there are several files on the second layer, corresponding to certain floors.  The next level of the folder contains a txt file detailing the path.
+[<img src="images/image3.png" width="60%"/>](image6.png)
+
+In the path file, there are lots of information, including the type of the data.  We are primarily looking at type indicating 'wifi' and 'waypoint'.
+
+The structure of data that contains information related to waypoint and wifi is presented below.
+[<img src="images/image3.png" width="60%"/>](image8.png)
+
+### Dataset Cleaning, and splitting of training/testing
+The code iterates through each path txt file based on the site that the path belongs to.  For each site, we first retrieve all the timestamps that wifi records have, and select 75% of them as the training set and remaining 25% as the testing set.
+[<img src="images/image3.png" width="60%"/>](image7.png)
+
+Among the training set, we look at how many times a wifi occurs, and select the ones appearing more than 500 times as the benchmark.  Next, based on each timestamp, we pivot the wifi data so that all the wifi at one time all appear into one row.  Having -999 means at that specific time, that specific wifi is not detected.  We do the similar thing for testing data.
+
+### Assigining the x,y, and floor
+We are interested in the waypoint location at certain time. With wifi's timestamp, we iterate through the waypoint and pick the waypoint that is closest to the wifi using waypoint's timestamp. As a result, the location can be appended.
+[<img src="images/image3.png" width="60%"/>](image9.png)
 
 [<img src="images/image3.png" width="60%"/>](image3.png)
 
@@ -80,6 +95,8 @@ KFold is also used.
 Performance was measured with MSE
 # Training with Filtered Dataset
 ### Why do we filtered the dataset
+Based on previous methodology, one waypoint may be corresponding to multiple wifi.  We are thinking maybe this gives extra information.  Therefore, on top of the existing data, we use the timestamp for waypoint as the base, and find the wifi that is closest to the waypoint.  Doing the same thing for both training and testing set, we get filtered dataset for both.
+
 ### Training with LightGBM on Filtered Data
 The code is in the file /Data_X_inNav_wifi_data_filtered_data.ipynb
 In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
