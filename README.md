@@ -84,8 +84,9 @@ The file was composed of 3 sections. In the first section, training datasets and
 We have chosen LightGBM because LightGBM is a tree-based gradient boosting framework with high efficiency and great performance on large datasets, and fully supports parallel and GPU training.
 ### Training with LightGBM
 The code is in the file /Data_X_inNav_wifi_data_unfiltered_data_fineTune.ipynb
-In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
-KFold is also used.
+In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE.
+
+KFold is also used. Folds = 10
 
 [<img src="images/image5.png" width="10%"/>](image5.png)
 
@@ -100,7 +101,12 @@ Based on previous methodology, one waypoint may be corresponding to multiple wif
 ### Training with LightGBM on Filtered Data
 The code is in the file /Data_X_inNav_wifi_data_filtered_data.ipynb
 In the first section, LightGBM that supports GPU is installed, and the unfiltered dataset is loaded from Google Drive. Then, we define 3 models that fits X, Y and Floor. Performance was measured with MSE
-# Finetunning
+
+# Finetuning
 ### LightGBM Hyperparameters
+
+<img src="images/LightGBM_parameters.png" width="40%"/>
+
+The image shows the parameters for the LightGBM model. Because the X and Y model is quite different from the Floor model, we used two pairs of parameters. During the finetuning, we discovered that the overall testset MSE is most sensitive to reg_alpha. We didn't put much focus on tuning other parameters like num_leaves due to the fact that although we have selected the number we believe performs the best, adjusting it didn'g increase/decrease testset MSE significantly.
 # License
 This project is under AGPL-3.0 License 
